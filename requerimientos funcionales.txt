@@ -1,0 +1,33 @@
+Requerimientos 
+
+USUARIOS
+* Registro de usuarios
+* Logueo de usuarios
+
+REGISTRO FUNCIONES
+* Subir una funcion
+	- Descripción
+	- Categoría
+	- El nombre de la función es opcional
+		- Si no se incluye se debe crear dinámicamente
+	- Código javascript (pintar palabras reservadas)
+		- Evaluar correctitud en la sintaxis 
+		- Evaluar que el código sea una función
+	- Mandarlo a la base de datos con la info del usuario actual
+	
+BUSCADOR DE FUNCIONES (acceso libre)
+* Buscar función por categoría
+* Buscar función por nombre de usuario
+* Buscar función por nombre de función
+* Visualización de función
+	- Mostrar descripción
+	- Mostrar código con sintaxis resaltada (utilizar alguna herramienta para esto)
+
+IMPORTAR FUNCIONES
+* Backend para importar una función seleccionada desde javascript
+* Las funciones se tienen que ejecutar en la memoria del cliente en un objeto que contenga
+las funciones requeridas
+	- Enviar objecto con clave-valor como parametro del importador, clave: descripción del
+	renombramiento, valor: identificador de la función a importar
+** la función importadora puede recibir uno o múltiples códigos de funciones a importar, y
+se cargan en el mismo objeto utilizando promesas
