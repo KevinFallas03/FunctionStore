@@ -1,0 +1,6 @@
+PORT = 3000
+DB_CONNECTION =
+API_NAME = FunctionStore
+DEFAULT_USER = user
+DEFAULT_PASS = password 
+TOKEN_KEY = your own token
