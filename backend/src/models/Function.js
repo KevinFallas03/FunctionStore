@@ -27,4 +27,4 @@ const functionSchema = new Schema(
   {timestamps: true}
 );
 
-module.exports = mongoose.model("Functions", functionSchema);
+module.exports = mongoose.model("Function", functionSchema);

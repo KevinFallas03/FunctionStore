@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const URI = process.env.DB_CONNECTION || "mongodb://localhost/function_store"; // cluster or local database for testing
 
-
 mongoose.connect(
     URI, 
     {
