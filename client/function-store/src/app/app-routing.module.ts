@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'templates', loadChildren: () => import('./function/function.module').then(m => m.FunctionModule) },
+  { path: 'functions', loadChildren: () => import('./function/function.module').then(m => m.FunctionModule) },
 ];
 
 @NgModule({
