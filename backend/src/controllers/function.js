@@ -1,6 +1,6 @@
 const Function = require('../models/Function');
 const User = require('../models/UserAuth');
-const { param } = require('../routes/function_obj');
+const { param } = require('../routes/function');
 
 const functionController = {};
 

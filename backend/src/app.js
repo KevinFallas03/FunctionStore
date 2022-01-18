@@ -19,6 +19,7 @@ app.use( express.urlencoded({ extended: true }) );
 
 /* Routes */
 app.use("/api/access", require("./routes/userAuth"));
+app.use("/api/functions", require("./routes/function"));
 
 
 // Example : later can be User, Product, ...
