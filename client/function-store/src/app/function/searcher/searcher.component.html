@@ -1,1 +1,5 @@
-<p>searcher works!</p>
+<div *ngFor="let func of all_functions" style="width: 25rem;">
+    <h3>{{ func.name }}</h3>
+    <p >{{ func.description }}</p>
+    <p >{{ func.js_code }}</p>
+</div>
