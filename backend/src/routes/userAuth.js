@@ -10,7 +10,8 @@ router.get("/", userAuthController.getUsers);
 
 // Post method for log in
 router.post('/login', userAuthController.login);
-router.post("/", userAuthController.createUserAuth);
+router.post("/register", userAuthController.createUserAuth);
+router.post("/logoff", userAuthController.createUserAuth);
  
 //  router.put("/:email", userAuthController.updateUserAuth);
  
