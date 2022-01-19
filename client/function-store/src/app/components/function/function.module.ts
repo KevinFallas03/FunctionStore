@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FunctionService } from './function.service'
+import { FunctionService } from '../../services/functionService/function.service'
 
 import { FunctionRoutingModule } from './function-routing.module';
 
-import { SearcherComponent } from './searcher/searcher.component';
+import { SearcherComponent } from '../searcher/searcher.component';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FunctionService } from '../function.service';
+import { FunctionService } from '../../services/functionService/function.service';
 @Component({
   selector: 'app-searcher',
   templateUrl: './searcher.component.html',
@@ -24,7 +24,7 @@ export class SearcherComponent implements OnInit {
         this.temp_colored_code =  data;
         console.log(data);
         // const div = document.getElementById("1");
-        // div.innerHTML = this.temp_colored_code; 
+        // div.innerHTML = this.temp_colored_code;
       }
     );
     // return this.temp_colored_code;
