@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FunctionService } from '../function.service';
 @Component({
@@ -9,13 +8,29 @@ import { FunctionService } from '../function.service';
 })
 export class SearcherComponent implements OnInit {
   all_functions:any = [{}];
+  temp_colored_code = "";
   constructor(
     private _functionService: FunctionService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.get();
+    console.log("Inicio del searcher");
+    // this.get();
+  }
+  getColoredCode(func){
+    this._functionService.getColoredCode(func.js_code).subscribe(
+      data => {
+        this.temp_colored_code =  data;
+        console.log(data);
+        // const div = document.getElementById("1");
+        // div.innerHTML = this.temp_colored_code; 
+      }
+    );
+    // return this.temp_colored_code;
+  }
+  showMsg(text){
+    console.log(text);
   }
   get(){
     this._functionService.getAll().subscribe(

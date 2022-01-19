@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment'
 
 @Injectable({
@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment'
 })
 export class FunctionService {
   _apiUrl = environment.url + "/api/functions";
+  _hiliteApiUrl = environment.hiliteUrl;
 
   constructor(private _http: HttpClient) { }
 
@@ -27,7 +28,9 @@ export class FunctionService {
   findByIdAndUpdate(id, new_function){
     return this._http.put(this._apiUrl+'/'+id, new_function);
   }
-
+  getColoredCode(code){
+    return this._http.get(`/colored?code=${code}`,{responseType: 'text'});
+  }
   deleteById(id){
     return this._http.delete(this._apiUrl+'/'+id);
   }
