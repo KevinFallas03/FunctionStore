@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  //url: 'https://api-.herokuapp.com' API URL EN DEPLOY
-  url: 'http://localhost:3000'
+  url: 'http://localhost:3000',
+  hiliteUrl: 'http://hilite.me/api'
 };
 
 /*

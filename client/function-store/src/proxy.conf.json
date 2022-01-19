@@ -1,0 +1,8 @@
+{
+    "/colored": {
+        "target": "http://hilite.me",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {"^/colored" : "/api"}
+    }
+}
