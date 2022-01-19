@@ -8,6 +8,8 @@ const userAuthController = require("../controllers/userAuth");
 router.get("/:email", userAuthController.getUserInfo);
 router.get("/", userAuthController.getUsers);
 
+// Post method for log in
+router.post('/login', userAuthController.login);
 router.post("/", userAuthController.createUserAuth);
  
 //  router.put("/:email", userAuthController.updateUserAuth);
@@ -18,8 +20,5 @@ router.post("/", userAuthController.createUserAuth);
 // router.get('/authorize', auth, userAuthController.isAdmin);
 
 router.get("/userByToken/:token", userAuthController.getUserAuthByToken);
-
-// Post method for log in
-router.post('/login', userAuthController.login);
 
 module.exports = router; 
