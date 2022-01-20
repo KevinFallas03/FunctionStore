@@ -14,13 +14,12 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { HomeComponent } from './components/home/home.component';
 import { SearcherComponent } from './components/searcher/searcher.component';
-import { FunctionComponent } from './components/function/function.component';
 
 // SERVICES MODULES
 import { FunctionService } from './services/functionService/function.service'
 import { AuthService } from './Services/AuthService/auth.service';
+import { AddFunctionComponent } from './components/add-function/add-function.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +27,8 @@ import { AuthService } from './Services/AuthService/auth.service';
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
-    HomeComponent,
-    FunctionComponent,
-    SearcherComponent
+    SearcherComponent,
+    AddFunctionComponent
   ],
   imports: [
     BrowserModule,
