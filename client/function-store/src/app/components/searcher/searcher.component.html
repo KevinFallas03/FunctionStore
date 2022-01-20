@@ -4,8 +4,8 @@
           <mat-card-title>{{ func.name }}</mat-card-title>
           <mat-card-subtitle>{{ func.category }} | Esteban Madrigal</mat-card-subtitle>
         </mat-card-title-group>
-        {{showMsg(i)}}
-        <!-- {{getColoredCode(func)}} -->
+        <div [innerHTML]="func.html_colored_code"></div>
+        <br>
         <mat-card-content>
           <p>
             {{ func.description }}

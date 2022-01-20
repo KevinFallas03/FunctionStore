@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { FunctionService } from '../../services/functionService/function.service';
 
@@ -9,26 +10,21 @@ import { FunctionService } from '../../services/functionService/function.service
 })
 export class SearcherComponent implements OnInit {
   all_functions:any = [{}];
-  temp_colored_code = "";
   constructor(
     private _functionService: FunctionService,
-    private router: Router
+    private sanitizer:DomSanitizer
   ) { }
 
   ngOnInit(): void {
-    console.log("Inicio del searcher");
     this.get();
+    
   }
   getColoredCode(func){
     this._functionService.getColoredCode(func.js_code).subscribe(
       data => {
-        this.temp_colored_code =  data;
-        console.log(data);
-        // const div = document.getElementById("1");
-        // div.innerHTML = this.temp_colored_code;
+        func.html_colored_code = this.sanitizer.bypassSecurityTrustHtml(data);
       }
     );
-    // return this.temp_colored_code;
   }
   showMsg(text){
     console.log(text);
@@ -36,10 +32,11 @@ export class SearcherComponent implements OnInit {
   get(){
     this._functionService.getAll().subscribe(
       data => {
-        console.log(data);
         this.all_functions = data;
+        this.all_functions.forEach(func => {
+          this.getColoredCode(func);
+        });
       }
     );
-    console.log(this.all_functions);
   }
 }

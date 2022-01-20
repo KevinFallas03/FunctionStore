@@ -29,7 +29,7 @@ export class FunctionService {
     return this._http.put(this._apiUrl+'/'+id, new_function);
   }
   getColoredCode(code){
-    return this._http.get(`/colored?code=${code}`,{responseType: 'text'});
+    return this._http.get(`/colored?code=${code}&lexer=javascript&style=default`,{responseType: 'text'});
   }
   deleteById(id){
     return this._http.delete(this._apiUrl+'/'+id);
