@@ -11,7 +11,7 @@
   <div>
     <form class="example-form">
       <mat-form-field class="example-full-width" appearance="standard" (click)="showFilters()">
-        <mat-label>Search your function</mat-label>
+        <mat-label><mat-icon>search</mat-icon>  Search your function</mat-label>
         <input (change)="filterFunctions($event)" [disabled]="!searchEnabled" matInput placeholder="matematicas" >
       </mat-form-field>
     </form>
