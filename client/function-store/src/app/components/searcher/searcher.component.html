@@ -1,7 +1,7 @@
 <div style="margin: 15px;">
   
   <div id="filters">
-    <mat-button-toggle-group name="filters" multiple (change)="onValChange($event)">
+    <mat-button-toggle-group name="filters" multiple (change)="onFilterChange($event)">
       <mat-button-toggle value="quit"><mat-icon>clear</mat-icon></mat-button-toggle>
       <mat-button-toggle value="name">Name</mat-button-toggle>
       <mat-button-toggle value="category">Category</mat-button-toggle>
@@ -18,7 +18,7 @@
   </div>
 </div>
 
-<div *ngFor="let func of filtered_functions; let i = index"  style="width: 25rem;">
+<div *ngFor="let func of filteredFunctions; let i = index"  style="width: 25rem;">
     <mat-card class="function-card">
         <mat-card-title-group>
           <mat-card-title>{{ func.name }}</mat-card-title>

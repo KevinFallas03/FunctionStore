@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Router } from '@angular/router';
 import { FunctionService } from '../../services/functionService/function.service';
 
 @Component({
@@ -9,9 +8,9 @@ import { FunctionService } from '../../services/functionService/function.service
   styleUrls: ['./searcher.component.css']
 })
 export class SearcherComponent implements OnInit {
-  all_functions:any = [{}];
-  filtered_functions:any = [{}];
-  search_filters = [];
+  allFunctions:any = [{}];
+  filteredFunctions:any = [{}];
+  searchFilters = [];
   searchEnabled:boolean=false;
   constructor(
     private _functionService: FunctionService,
@@ -19,32 +18,32 @@ export class SearcherComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.get();
-    
+    this.get();  
   }
-  onValChange(event){
-    this.searchEnabled = true;
-    let toggle = event.source;
-    if(event.value.includes('quit')){
-      this.filtered_functions = this.all_functions;
-      let group = toggle.buttonToggleGroup;
-      group.value = [];
-      this.search_filters = [];
-      var f = document.getElementById('filters');
-      f.style.transform = 'translateX(-170px)'
-      this.searchEnabled = false;
+  onFilterChange(event){
+    this.searchEnabled = true; // Activate search bar
+    let toggle = event.source; // Get the toggle 
+    if(event.value.includes('quit')){ // If the user clicked quit(x)
+      this.filteredFunctions = this.allFunctions; // Show all the functions 
+      toggle.buttonToggleGroup.value = []; // Clean the values of the toggle group
+      this.searchFilters = []; // Clean the filters
+      this.hideFilters();
+      this.searchEnabled = false; // Deactivate search bar
     }else{
-      if(event.value.length == 0){
-        this.filtered_functions = this.all_functions;
-        this.searchEnabled = false;
+      if(event.value.length == 0){ // When no filter selected
+        this.filteredFunctions = this.allFunctions; // Show all the functions
+        this.searchEnabled = false; // Deactivate search bar
       }
-      this.search_filters = event.value; 
-      console.log(event.value);
+      this.searchFilters = event.value; // Get the filters
     }
   }
   showFilters(){
-    var f = document.getElementById('filters');
-    f.style.transform = 'translateX(470px)'
+    var filtersContainer = document.getElementById('filters');
+    filtersContainer.style.transform = 'translateX(470px)'
+  }
+  hideFilters(){
+    var filtersContainer = document.getElementById('filters');
+    filtersContainer.style.transform = 'translateX(-170px)'
   }
   getColoredCode(func){
     this._functionService.getColoredCode(func.js_code).subscribe(
@@ -56,27 +55,26 @@ export class SearcherComponent implements OnInit {
   get(){
     this._functionService.getAll().subscribe(
       data => {
-        this.all_functions = data;
-        this.all_functions.forEach(func => {
+        this.allFunctions = data;
+        this.allFunctions.forEach(func => {
           this.getColoredCode(func);
         });
-        this.filtered_functions = this.all_functions;
+        this.filteredFunctions = this.allFunctions;
       }
     );
   }
   filterFunctions(event){
     let inputText = event.currentTarget.value;
     let new_functions = [];
-    this.all_functions.forEach(func => {
-      this.search_filters.forEach(filter =>{
-        console.log(func[filter]);
-        console.log(inputText);
+
+    this.filteredFunctions  = this.allFunctions.filter(func => {
+      let isInclude = false;
+      this.searchFilters.forEach(filter =>{
         if(func[filter].includes(inputText) && !new_functions.includes(func)){
-          new_functions.push(func);
-          return;
+          isInclude = true;
         };
       })
+      return isInclude;
     });
-    this.filtered_functions = new_functions;
   }
 }
