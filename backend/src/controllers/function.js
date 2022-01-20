@@ -6,7 +6,7 @@ const functionController = {};
 
 functionController.get = async (req, res) => {
     try{
-        const function_obj = await Function.find();
+        const function_obj = await Function.find().populate('createdBy','email -_id');
         res.json(function_obj);
     }
     catch(error){

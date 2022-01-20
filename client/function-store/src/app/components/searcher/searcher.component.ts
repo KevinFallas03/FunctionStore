@@ -38,11 +38,11 @@ export class SearcherComponent implements OnInit {
     }
   }
   showFilters(){
-    var filtersContainer = document.getElementById('filters');
+    let filtersContainer = document.getElementById('filters');
     filtersContainer.style.transform = 'translateX(470px)'
   }
   hideFilters(){
-    var filtersContainer = document.getElementById('filters');
+    let filtersContainer = document.getElementById('filters');
     filtersContainer.style.transform = 'translateX(-170px)'
   }
   getColoredCode(func){
@@ -58,6 +58,7 @@ export class SearcherComponent implements OnInit {
         this.allFunctions = data;
         this.allFunctions.forEach(func => {
           this.getColoredCode(func);
+          func.user = func.createdBy.email;
         });
         this.filteredFunctions = this.allFunctions;
       }
@@ -66,7 +67,6 @@ export class SearcherComponent implements OnInit {
   filterFunctions(event){
     let inputText = event.currentTarget.value;
     let new_functions = [];
-
     this.filteredFunctions  = this.allFunctions.filter(func => {
       let isInclude = false;
       this.searchFilters.forEach(filter =>{

@@ -22,7 +22,7 @@
     <mat-card class="function-card">
         <mat-card-title-group>
           <mat-card-title>{{ func.name }}</mat-card-title>
-          <mat-card-subtitle>{{ func.category }} | Esteban Madrigal</mat-card-subtitle>
+          <mat-card-subtitle>{{ func.category }} | {{func.user}}</mat-card-subtitle>
         </mat-card-title-group>
         <div [innerHTML]="func.html_colored_code"></div>
         <br>
