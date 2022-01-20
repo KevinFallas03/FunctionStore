@@ -1,8 +1,13 @@
-const url = "http://localhost:3000/api/functions/";
-
 // References:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
 // https://stackoverflow.com/questions/7650071/is-there-a-way-to-create-a-function-from-a-string-with-javascript/7650148
+
+const url = "http://localhost:3000/api/functions/";
+
+export function importar(...params) {
+  const importer = new importador();
+  return importer.importar(...params);
+}
 
 export class importador {
   // * Param struture: ...{nombre: id} *

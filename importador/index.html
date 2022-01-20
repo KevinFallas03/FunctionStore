@@ -1,33 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Third Party HTML</title>
     <script type="module" src="importador.mjs"></script>
-    <script type=”module” src="https://midominio/importador.mjs"></script>
-</head>
-<body>
+    <script type="”module”" src="https://midominio/importador.mjs"></script>
+  </head>
+  <body>
     <div>
-        <h1>
-            Third Party Application
-        </h1>
-        <p>
-            Please use the console.
-        </p>
+      <h1>Third Party Application</h1>
+      <p>Please use the console.</p>
     </div>
     <script type="module">
-
-        // ! Cambiar a HTTP
-        import {importador} from "./importador.mjs"
-        const importer = new importador();
-        importer.importar({"miFuncion":"61e6fc7727cd78f7621cf062"})
-            .then(() => {
-                console.log(importer);
-                console.log(importer.miFuncion(1,2));
-            });
+      // ! Cambiar a HTTP
+      import { importar } from "./importador.mjs";
+      importar({ miFuncion: "61e6fc7727cd78f7621cf062" }).then((importer) => {
         window.importer = importer;
+        alert("Funciones Cargadas");
+        console.log(importer);
+      });
     </script>
-</body>
+  </body>
 </html>
