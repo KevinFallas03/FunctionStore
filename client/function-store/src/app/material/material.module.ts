@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -10,7 +11,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const MaterialComponents = [ 
   MatButtonModule,
@@ -25,6 +26,7 @@ const MaterialComponents = [
   MatTableModule,
   MatCardModule,
   MatFormFieldModule,
+  MatButtonToggleModule
 ];
 
 @NgModule({

@@ -3,3 +3,9 @@
     padding: 30px;
     margin: 10px;
 }
+#filters {
+    position: absolute;
+    top: 70px;
+    left: -250px;
+    transition: transform 1s;
+  }

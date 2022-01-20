@@ -1,4 +1,24 @@
-<div *ngFor="let func of all_functions; let i = index"  style="width: 25rem;">
+<div style="margin: 15px;">
+  
+  <div id="filters">
+    <mat-button-toggle-group name="filters" multiple (change)="onValChange($event)">
+      <mat-button-toggle value="quit"><mat-icon>clear</mat-icon></mat-button-toggle>
+      <mat-button-toggle value="name">Name</mat-button-toggle>
+      <mat-button-toggle value="category">Category</mat-button-toggle>
+      <mat-button-toggle value="user">User</mat-button-toggle>
+    </mat-button-toggle-group>  
+  </div>
+  <div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width" appearance="standard" (click)="showFilters()">
+        <mat-label>Search your function</mat-label>
+        <input (change)="filterFunctions($event)" [disabled]="!searchEnabled" matInput placeholder="matematicas" >
+      </mat-form-field>
+    </form>
+  </div>
+</div>
+
+<div *ngFor="let func of filtered_functions; let i = index"  style="width: 25rem;">
     <mat-card class="function-card">
         <mat-card-title-group>
           <mat-card-title>{{ func.name }}</mat-card-title>
