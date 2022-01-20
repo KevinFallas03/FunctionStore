@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FunctionService } from '../../services/functionService/function.service';
+
 @Component({
   selector: 'app-searcher',
   templateUrl: './searcher.component.html',
@@ -16,7 +17,7 @@ export class SearcherComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("Inicio del searcher");
-    // this.get();
+    this.get();
   }
   getColoredCode(func){
     this._functionService.getColoredCode(func.js_code).subscribe(
@@ -35,8 +36,10 @@ export class SearcherComponent implements OnInit {
   get(){
     this._functionService.getAll().subscribe(
       data => {
-        this.all_functions = data
+        console.log(data);
+        this.all_functions = data;
       }
     );
+    console.log(this.all_functions);
   }
 }
