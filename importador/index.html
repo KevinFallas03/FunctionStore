@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Third Party HTML</title>
-    <script type="module" src="http://localhost:3000/static/importadr.mjs"></script>
+    <script
+      type="module"
+      src="http://localhost:3000/static/importador.mjs"
+    ></script>
   </head>
   <body>
     <div>
@@ -13,12 +16,26 @@
       <p>Please use the console.</p>
     </div>
     <script type="module">
-      // ! Cambiar a HTTP
-      import { importar } from "http://localhost:3000/static/importador.mjs";
+      import {
+        importar,
+        importador,
+      } from "http://localhost:3000/static/importador.mjs";
+
+      // * Option instanciando
+      // const importer = new importador();
+      // importer
+      //   .importar({ miFuncion: "61e6fc7727cd78f7621cf062" })
+      //   .then((importer) => {
+      //     console.log(importer);
+      //     window.importer = importer;
+      //     alert("Funciones Cargadas");
+      //   });
+
+      // Funcion Auxiliar
       importar({ miFuncion: "61e6fc7727cd78f7621cf062" }).then((importer) => {
+        console.log(importer);
         window.importer = importer;
         alert("Funciones Cargadas");
-        console.log(importer);
       });
     </script>
   </body>

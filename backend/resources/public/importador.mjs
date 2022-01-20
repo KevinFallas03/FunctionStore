@@ -6,7 +6,12 @@ const url = "http://localhost:3000/api/functions/";
 
 export function importar(...params) {
   const importer = new importador();
-  return importer.importar(...params);
+  return new Promise((resolve, reject) => {
+    importer
+      .importar(...params)
+      .then(resolve(importer))
+      .catch(reject(importer));
+  });
 }
 
 export class importador {
@@ -19,7 +24,9 @@ export class importador {
           fetch(url + param[nombre])
             .then((res) => res.json())
             .then((parsedRes) => new Function("return " + parsedRes.js_code)())
-            .then((foo) => (this[nombre] = foo))
+            .then((foo) => {
+              this[nombre] = foo;
+            })
             .catch((e) => {
               console.error("Error Importing Function: \n", e);
             })
