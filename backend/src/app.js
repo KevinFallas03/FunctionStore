@@ -17,6 +17,9 @@ app.use(express.json());
 // Print JSONS
 app.use( express.urlencoded({ extended: true }) );
 
+// Serve Static Files
+app.use("/static", express.static("./resources/public"));
+
 /* Routes */
 app.use("/api/access", require("./routes/userAuth"));
 app.use("/api/functions", require("./routes/function"));
