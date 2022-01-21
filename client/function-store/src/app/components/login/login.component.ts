@@ -45,10 +45,10 @@ export class LoginComponent implements OnInit {
 
     this.authService.authenticateUser(loginInfo).subscribe(
       (res) => {
-        console.log(1);
-        this.user = {_id: res.id, email: res.email};
+        this.user = {_id: res.userFound._id, email: res.userFound.email};
+        localStorage.setItem("user_id", this.user._id);
         this.authService.setAuthenticationToken(res.token);
-        this.routerService.navigateByUrl('/home');
+        this.routerService.navigateByUrl('/');
         this.openSnackBar('Autenticado exitosamente','Cerrar');
       },
       (error) => {

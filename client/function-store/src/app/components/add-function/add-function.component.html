@@ -1,1 +1,28 @@
-<p>add-function works!</p>
+<div class="center">
+  <h1>Add new function</h1>
+  <div class="form">
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Function name</mat-label>
+        <input matInput placeholder="Name" id="name" type="text" formControlName="name">
+        <mat-hint>Optional</mat-hint>
+      </mat-form-field> <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Function description</mat-label>
+        <input matInput placeholder="Description" id="description" type="text" formControlName="description">
+        <mat-hint>Required</mat-hint>
+      </mat-form-field> <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Function category</mat-label>
+        <input matInput placeholder="Category" id="category" type="text" formControlName="category">
+        <mat-hint>Required</mat-hint>
+      </mat-form-field> <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Javascript Function</mat-label>
+        <textarea  matInput placeholder="Javascript code" id="js_code" type="text" formControlName="js_code"></textarea>
+        <mat-hint>Required</mat-hint>
+      </mat-form-field> <br><br>
+      <button mat-flat-button color="primary" type="submit">Submit function</button>
+    </form>
+  </div>
+</div>

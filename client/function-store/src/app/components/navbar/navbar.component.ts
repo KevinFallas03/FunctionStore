@@ -45,7 +45,7 @@ export class NavbarComponent implements OnInit {
     .subscribe(
       _ => {
         localStorage.removeItem('authToken');
-        localStorage.removeItem('loggedUser');
+        localStorage.removeItem('user_id');
         this.routerService.navigate(['/']);
       },
       _ => {console.log("error")}

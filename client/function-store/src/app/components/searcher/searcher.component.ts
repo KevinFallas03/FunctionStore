@@ -18,13 +18,14 @@ export class SearcherComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.get();  
+    this.get();
   }
   onFilterChange(event){
     this.searchEnabled = true; // Activate search bar
-    let toggle = event.source; // Get the toggle 
+    let toggle = event.source; // Get the toggle
     if(event.value.includes('quit')){ // If the user clicked quit(x)
-      this.filteredFunctions = this.allFunctions; // Show all the functions 
+      this.filteredFunctions = this.allFunctions; // Show all the functions
+      console.log(this.filteredFunctions);
       toggle.buttonToggleGroup.value = []; // Clean the values of the toggle group
       this.searchFilters = []; // Clean the filters
       this.hideFilters();

@@ -40,6 +40,7 @@ export class AuthService {
     localStorage.setItem('authToken', token);
     // Get user data
     this.currentUser = this.jwtHelper.decodeToken(token).user;
+    console.log(this.currentUser);
     this.isAuthenticated = true;
   }
 
@@ -77,6 +78,8 @@ export class AuthService {
     };
     // Remove token from localStorage
     localStorage.removeItem('authToken');
+    localStorage.removeItem("user_id");
+
   }
 
   public getCurrentUser(): User {
@@ -92,7 +95,6 @@ export class AuthService {
   }
 
   public authenticateUser(userInfo: User): Observable<any> {
-    console.log(userInfo);
     return this.httpClient.post(`${this._apiUrl}/login`, userInfo, {
       headers: { 'Content-Type': 'application/json' },
     });
